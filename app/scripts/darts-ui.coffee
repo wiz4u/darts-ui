@@ -14,6 +14,12 @@ class DartsUi
         @root = element
         @s = new Snap(@root)
 
+        width = @root.clientWidth
+        height = @root.clientHeight
+        @centerX = width / 2
+        @centerY = height / 2
+        @radius = Math.min(@centerX, @centerY) * 0.95
+
     draw: ->
         dartsUi = this.s.g();
 
@@ -73,6 +79,7 @@ class DartsUi
             point = @s.text x, y, @POINTS[i]
             point.attr
                 class: className
+                fontSize: (radius * 0.15) + 'px'
 
             height = point.getBBox().height
             point.attr
