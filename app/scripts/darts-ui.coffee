@@ -94,8 +94,15 @@ class DartsUi
 
         return points
 
+    setListener: (listener) ->
+        @listener = listener
+
     onClick: (event) =>
         id = event.target.id
-        console.log id
+        [score, ratio] = id.split '-'
+
+        return unless ratio?
+
+        @listener? score, ratio
 
 window.DartsUi = DartsUi
