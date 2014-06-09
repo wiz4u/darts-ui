@@ -1,1 +1,2 @@
-console.log "'Allo from CoffeeScript!"
+
+dartsUi = new window.DartsUi()
