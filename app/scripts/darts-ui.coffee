@@ -6,9 +6,9 @@ class DartsUi
 
     root: null
 
-    centerX: 320
-    centerY: 320
-    radius: 300
+    centerX: null
+    centerY: null
+    radius: null
 
     constructor: (element) ->
         @root = element
