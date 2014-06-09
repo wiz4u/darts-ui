@@ -1,0 +1,74 @@
+
+$darts-base-color: #000;
+$darts-border-color: #888;
+
+$darts-color-high-0: #e00;
+$darts-color-high-1: #0b0;
+$darts-color-low-0: #000;
+$darts-color-low-1: #ffe;
+
+$darts-color-focus: #fd4;
+$darts-color-selected: #8ff;
+
+$darts-font-family: Impact;
+$darts-font-size: 40;
+$darts-font-color: #eee;
+
+
+.darts-base {
+  fill: $darts-base-color;
+  stroke: $darts-border-color;
+  stroke-width: 3;
+}
+
+.darts-high-ring {
+  &:nth-child(odd) {
+    stroke: $darts-color-high-0;
+  }
+
+  &:nth-child(even) {
+    stroke: $darts-color-high-1;
+  }
+}
+
+.darts-single {
+  &:nth-child(odd) {
+    stroke: $darts-color-low-0;
+  }
+
+  &:nth-child(even) {
+    stroke: $darts-color-low-1;
+  }
+}
+
+.darts-bull {
+  stroke: $darts-border-color;
+  stroke-width: 1;
+}
+
+.darts-bull-outer {
+  fill: $darts-color-high-0;
+}
+
+.darts-bull-inner {
+  fill: $darts-color-low-0;
+}
+
+.darts-point {
+  font-family: $darts-font-family;
+  font-size: $darts-font-size + px;
+  text-anchor: middle;
+  fill: $darts-font-color;
+}
+
+.darts-cell {
+  &.darts-focus {
+    stroke: $darts-color-focus !important;
+    fill: $darts-color-focus !important;
+  }
+
+  &.darts-selected {
+    stroke: $darts-color-selected !important;
+    fill: $darts-color-selected !important;
+  }
+}
