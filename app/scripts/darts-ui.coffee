@@ -6,9 +6,9 @@ class DartsUi
 
     root: null
 
-    centerX: 320
-    centerY: 320
-    radius: 300
+    centerX: null
+    centerY: null
+    radius: null
 
     constructor: (element) ->
         @root = element
@@ -19,6 +19,9 @@ class DartsUi
         @centerX = width / 2
         @centerY = height / 2
         @radius = Math.min(@centerX, @centerY) * 0.95
+
+        dartsUi = @draw()
+        dartsUi.click @onClick
 
     draw: ->
         dartsUi = this.s.g();
@@ -34,6 +37,8 @@ class DartsUi
         dartsUi.append(@drawCircle 'darts-cell darts-bull darts-bull-inner', '25-2', this.radius * 0.05)
 
         dartsUi.append(@drawPoints 'darts-point', @radius * 0.9, @radius * 0.1, '#fff')
+
+        return dartsUi
 
     drawCircle: (className, key, radius) ->
         circle = this.s.circle @centerX, @centerY, radius
@@ -61,7 +66,7 @@ class DartsUi
             ring.attr
                 class: className
                 strokeWidth: strokeWidth
-            #   id: this.points[i] + '-' + key
+                id: @POINTS[i] + '-' + key
 
             rings.append ring
 
@@ -88,5 +93,16 @@ class DartsUi
             points.append point
 
         return points
+
+    setListener: (listener) ->
+        @listener = listener
+
+    onClick: (event) =>
+        id = event.target.id
+        [score, ratio] = id.split '-'
+
+        return unless ratio?
+
+        @listener? score, ratio
 
 window.DartsUi = DartsUi
