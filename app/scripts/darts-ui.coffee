@@ -3,12 +3,15 @@
 class DartsUi
 
     POINTS: [20, 1, 18, 4, 13, 6, 10, 15, 2, 17, 3, 19, 7, 16, 8, 11, 14, 9, 12, 5]
+    FOCUS_CLASS: 'darts-focus'
 
     root: null
 
     centerX: null
     centerY: null
     radius: null
+
+    focusedElement: null
 
     constructor: (element) ->
         @root = element
@@ -98,11 +101,23 @@ class DartsUi
         @listener = listener
 
     onClick: (event) =>
+        @blur @focusedElement if @focusedElement?
+
+        @focus event.target
+
         id = event.target.id
         [score, ratio] = id.split '-'
 
         return unless ratio?
 
         @listener? score, ratio
+
+    focus: (element) =>
+        element.classList.add @FOCUS_CLASS
+        @focusedElement = element
+
+    blur: (element) =>
+        element.classList.remove @FOCUS_CLASS
+        @focusedElement = null
 
 window.DartsUi = DartsUi
