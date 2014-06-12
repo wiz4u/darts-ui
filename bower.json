@@ -1,6 +1,10 @@
 {
   "name": "darts-ui",
-  "private": true,
+  "version": "0.1.0",
+  "main": [
+    "dist/scripts/darts-ui.js",
+    "dist/styles/darts-ui.css"
+  ],
   "ignore": [
     "*.*",
     "app",
@@ -9,5 +13,6 @@
   "dependencies": {
     "Snap.svg": "~0.3.0"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "private": true
 }
