@@ -1,7 +1,5 @@
 node_modules
-dist
-!dist/scripts/darts-ui.js
-!dist/styles/darts-ui.css
+dist/*.*
 .tmp
 .sass-cache
 bower_components
