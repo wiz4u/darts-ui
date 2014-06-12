@@ -2,7 +2,6 @@
   "name": "darts-ui",
   "private": true,
   "dependencies": {
-    "jquery": "~1.11.0",
     "Snap.svg": "~0.3.0"
   },
   "devDependencies": {}
