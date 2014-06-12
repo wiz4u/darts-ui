@@ -8,7 +8,7 @@
   "ignore": [
     "*.*",
     "app",
-    "dist/*.*"
+    "dist/*.*",
     "test"
   ],
   "dependencies": {
