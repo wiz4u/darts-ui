@@ -1,1 +1,1 @@
-(function(){"use strict";var a;a=new window.DartsUi(document.getElementById("darts-ui")),a.setListener(function(a,b){return console.log(a+", "+b+" = "+a*b)})}).call(this);
+(function(){"use strict";var a;a=new window.DartsUi(document.getElementById("darts-ui")),a.setListener(function(a,b){return console.log(a+", "+b+" = "+a*b)}),a.hit(96),a.hit(112)}).call(this);
