@@ -6,7 +6,6 @@
     "dist/styles/darts-ui.css"
   ],
   "ignore": [
-    "*.*",
     "app",
     "test"
   ],
