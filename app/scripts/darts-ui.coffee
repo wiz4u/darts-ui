@@ -5,12 +5,15 @@ class DartsUi
     POINTS: [20, 1, 18, 4, 13, 6, 10, 15, 2, 17, 3, 19, 7, 16, 8, 11, 14, 9, 12, 5]
     FOCUS_CLASS: 'darts-focus'
 
+    dartsDevice: null
+
     root: null
 
     centerX: null
     centerY: null
     radius: null
 
+    cells: {}
     focusedElement: null
 
     constructor: (element) ->
@@ -25,6 +28,8 @@ class DartsUi
 
         dartsUi = @draw()
         dartsUi.click @onClick
+
+        @dartsDevice = new DartsDevice()
 
     draw: ->
         dartsUi = this.s.g();
@@ -43,17 +48,17 @@ class DartsUi
 
         return dartsUi
 
-    drawCircle: (className, key, radius) ->
+    drawCircle: (className, key, radius) =>
         circle = this.s.circle @centerX, @centerY, radius
         circle.attr
             class: className
             id: key
 
-        # this.cells[key] = circle
+        @cells[key] = circle
 
         return circle
 
-    drawRings: (className, key, radius, strokeWidth) ->
+    drawRings: (className, key, radius, strokeWidth) =>
         rings = @s.g()
 
         for i in [0..19]
@@ -73,7 +78,7 @@ class DartsUi
 
             rings.append ring
 
-            # this.cells[this.points[i] + '-' + key] = ring;
+            @cells[@POINTS[i] + '-' + key] = ring;
 
         return rings
 
@@ -119,5 +124,12 @@ class DartsUi
     blur: (element) =>
         element.classList.remove @FOCUS_CLASS
         @focusedElement = null
+
+    hit: (value) =>
+        id = @dartsDevice.getId value
+        cell = @cells[id]
+
+        @blur @focusedElement if @focusedElement?
+        @focus cell.node
 
 window.DartsUi = DartsUi
