@@ -20,8 +20,8 @@ class DartsUi
         @root = element
         @s = new Snap(@root)
 
-        width = @root.clientWidth
-        height = @root.clientHeight
+        width = @root.clientWidth || parseInt @root.getAttribute('width')
+        height = @root.clientHeight || parseInt @root.getAttribute('height')
         @centerX = width / 2
         @centerY = height / 2
         @radius = Math.min(@centerX, @centerY) * 0.95
