@@ -17,13 +17,17 @@
         <!-- build:css(.tmp) styles/darts-ui.css -->
         <link rel="stylesheet" href="styles/darts-ui.css">
         <!-- endbuild -->
+
+        <script src="bower_components/platform/platform.js"></script>
+        <link rel="import" href="elements/darts-ui.html">
     </head>
     <body>
         <!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <svg id="darts-ui" width="640" height="640"></svg>
+        <darts-ui></darts-ui>
+        <!-- <svg id="darts-ui" width="640" height="640"></svg> -->
 
         <!-- build:js({app,.tmp}) scripts/darts-ui.js -->
         <!-- bower:js -->
