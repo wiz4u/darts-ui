@@ -100,9 +100,6 @@ Polymer 'darts-ui',
 
         return points
 
-    setListener: (listener) ->
-        @listener = listener
-
     onClick: (event) ->
         @blur @focusedElement if @focusedElement?
 
@@ -113,7 +110,7 @@ Polymer 'darts-ui',
 
         return unless ratio?
 
-        @listener? score, ratio
+        @fire 'hit', {score, ratio}
 
     focus: (element) ->
         element.classList.add @FOCUS_CLASS
