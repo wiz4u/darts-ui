@@ -1,8 +1,9 @@
 'use strict'
 
-dartsUi = new window.DartsUi document.getElementById('darts-ui')
-dartsUi.setListener (score, ratio) ->
+dartsUi = document.querySelector('darts-ui')
+dartsUi.addEventListener 'hit', (event) ->
+    {score, ratio} = event.detail
     console.log score + ', ' + ratio + ' = ' + score * ratio
 
-dartsUi.hit(96)
-dartsUi.hit(112)
+# dartsUi.hit(96)
+# dartsUi.hit(112)

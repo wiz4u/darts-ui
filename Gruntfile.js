@@ -34,7 +34,7 @@ module.exports = function (grunt) {
                 tasks: ['bowerInstall']
             },
             coffee: {
-                files: ['<%= config.app %>/scripts/{,*/}*.{coffee,litcoffee,coffee.md}'],
+                files: ['<%= config.app %>/{,**/}*.{coffee,litcoffee,coffee.md}'],
                 tasks: ['coffee:dist']
             },
             coffeeTest: {
@@ -154,6 +154,12 @@ module.exports = function (grunt) {
                     cwd: '<%= config.app %>/scripts',
                     src: '{,*/}*.{coffee,litcoffee,coffee.md}',
                     dest: '.tmp/scripts',
+                    ext: '.js'
+                }, {
+                    expand: true,
+                    cwd: '<%= config.app %>/elements',
+                    src: '{,*/}*.coffee',
+                    dest: '.tmp/elements',
                     ext: '.js'
                 }]
             },
